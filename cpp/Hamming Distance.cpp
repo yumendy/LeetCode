@@ -4,7 +4,7 @@ public:
         int counter = 0;
         int temp_num = x ^ y;
         while(temp_num > 0) {
-            counter += temp_num % 2;
+            counter += temp_num & 1;
             temp_num >>= 1;
         }
         return counter;

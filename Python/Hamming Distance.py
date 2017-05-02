@@ -8,6 +8,6 @@ class Solution(object):
         result = 0
         temp = x ^ y
         while temp > 0:
-            result += temp - ((temp >> 1) << 1)
+            result += (temp & 1)
             temp >>= 1
         return result
