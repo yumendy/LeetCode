@@ -1,10 +1,7 @@
-class Solution:
-    # @param {string} s
-    # @return {integer}
+class Solution(object):
     def titleToNumber(self, s):
-        l = len(s) - 1
-        Sum = 0
-        for c in s:
-            Sum += (ord(c) - 64) * 26 ** l
-            l -= 1
-        return Sum
+        """
+        :type s: str
+        :rtype: int
+        """
+        return sum(map(lambda a: (a[1] - 64) * pow(26, a[0]), list(enumerate(map(ord, s)[::-1]))))
