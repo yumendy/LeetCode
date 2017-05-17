@@ -1,16 +1,10 @@
-class Solution:
-    # @param {integer[]} nums
-    # @return {integer}
+class Solution(object):
     def majorityElement(self, nums):
-        l = len(nums) / 2
-        dic = {}
-        for item in nums:
-            if item in dic:
-                dic[item] += 1
-                if dic[item] > l:
-                    return item
-            else:
-                dic[item] = 1
-        for item in dic:
-        	if dic[item] > l:
-        		return item
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        c = collections.Counter(nums)
+        t = c.items()
+        t.sort(key=lambda x: x[1], reverse=True)
+        return t[0][0]

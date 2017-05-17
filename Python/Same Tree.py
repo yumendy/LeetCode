@@ -1,14 +1,20 @@
-class Solution:
-    # @param {TreeNode} p
-    # @param {TreeNode} q
-    # @return {boolean}
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
     def isSameTree(self, p, q):
-        if (p is None) and (q is None):
+        """
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: bool
+        """
+        if p is None and q is None:
             return True
-        elif (p is None) or (q is None):
-            return False
         else:
-            if (p.val == q.val) and (self.isSameTree(p.left,q.left) and (self.isSameTree(p.right, q.right))):
-                return True
-            else:
-                return False
+            if p and q:
+                return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right) and p.val == q.val
+            return False
