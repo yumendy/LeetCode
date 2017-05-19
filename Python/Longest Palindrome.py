@@ -4,19 +4,12 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        dic = {}
-        for ch in s:
-            if ch in dic:
-                dic[ch] += 1
+        dic = collections.Counter(s)
+        size = odd_flag = 0
+        for num in dic.values():
+            if num % 2 == 0:
+                size += num
             else:
-                dic[ch] = 1
-        odd_flag = 0
-        size = 0
-        for key in dic:
-            if dic[key] % 2 == 0:
-                size += dic[key]
-            else:
+                size += num - 1
                 odd_flag = 1
-                if dic[key] > 1:
-                    size += dic[key] - 1
         return size + odd_flag
