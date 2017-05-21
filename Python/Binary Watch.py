@@ -7,7 +7,12 @@ class Solution(object):
         l = []
         for i in xrange(12):
             for j in xrange(60):
-                if bin(i).count('1') + bin(j).count('1') == num:
-                    l.append('%d:%02d' % (i,j))
+                if self.count_bit(i) + self.count_bit(j) == num:
+                    l.append('%d:%02d' % (i, j))
         return l
-        
+
+    def count_bit(self, num):
+        num = (num & 0x55) + ((num >> 1) & 0x55)
+        num = (num & 0x33) + ((num >> 2) & 0x33)
+        num = (num & 0x0f) + ((num >> 4) & 0x0f)
+        return num
