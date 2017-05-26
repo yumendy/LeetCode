@@ -1,16 +1,16 @@
 # Definition for singly-linked list.
-# class ListNode:
+# class ListNode(object):
 #     def __init__(self, x):
 #         self.val = x
 #         self.next = None
 
-class Solution:
-    # @param {ListNode} head
-    # @return {ListNode}
+class Solution(object):
     def deleteDuplicates(self, head):
-        if head is None:
-            return None
-        elif head.next is None:
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if (not head) or (not head.next):
             return head
         else:
             temp = head
