@@ -5,11 +5,7 @@ class Solution(object):
         :type t: str
         :rtype: str
         """
-        ls = list(s)
-        lt = list(t)
-        ls.sort()
-        lt.sort()
-        ls.append(None)
-        for i , j in zip(ls, lt):
-            if i != j:
-                return j
+        res = 0
+        for num in map(ord, s + t):
+            res ^= num
+        return res

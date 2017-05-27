@@ -4,21 +4,11 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
-        if n % 2 == 0:
-            m = n / 2
-            res = 2
-            for x in xrange(1, m):
-                y = n - 2 * x
-                res += self.fact(x + y) / (self.fact(x) * self.fact(y))
-            return res
-        else:
-            m = n / 2
-            res = 1
-            for x in xrange(1, m + 1):
-                y = n - 2 * x
-                res += self.fact(x + y) / (self.fact(x) * self.fact(y))
-            return res
-        
+        m, res = (n / 2, 2) if n % 2 == 0 else (n / 2 + 1, 1)
+        for x in xrange(1, m):
+            y = n - 2 * x
+            res += self.fact(x + y) / (self.fact(x) * self.fact(y))
+        return res
         
         
     def fact(self, n):
